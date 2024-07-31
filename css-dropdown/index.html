@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Dropdown</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <label for="toggle" class="dropdown">
+    Account
+
+    <input id="toggle" type="checkbox" hidden>
+    <ul class="dropdown__content">
+      <li><a href="#" class="dropdown__item"><i class='bx bx-user'></i>Profile</a></li>
+      <li><a href="#" class="dropdown__item"><i class='bx bx-cog'></i>Settings</a></li>
+      <li><a href="#" class="dropdown__item"><i class='bx bx-log-out'></i>Logout</a></li>
+    </ul>
+  </label>
+</body>
+</html>
