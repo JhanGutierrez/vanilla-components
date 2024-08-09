@@ -1,0 +1,62 @@
+:root {
+  --item-width: 200px;
+  --item-height: 100px;
+  --item-spacing: 20px;
+  --animation-duration: 40s;
+  --total-items: 6;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.slider {
+  background-color: #f7f7fb;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.slider__track {
+  position: relative;
+  width: 100%;
+  height: var(--item-height);
+  background-color: white;
+  overflow: hidden;
+}
+
+.slider__item {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: var(--item-height);
+  width: var(--item-width);
+  left: max(calc((var(--item-width) + var(--item-spacing)) * var(--total-items)), 100%);
+  animation: scrollItemLeft var(--animation-duration) linear infinite;
+  animation-delay: calc(var(--animation-duration) / var(--total-items) * (var(--total-items) - var(--item-order)) * -1);
+  display: grid;
+  place-items: center;
+}
+
+.slider__image {
+  width: 100%;
+}
+
+.slider__track--reverse .slider__item {
+  animation-direction: reverse;
+}
+
+.slider__track:hover .slider__item {
+  animation-play-state: paused;
+}
+
+@keyframes scrollItemLeft {
+  to {
+    left: calc(-1 * (var(--item-width) + var(--item-spacing)));
+  }
+}
